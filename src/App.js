@@ -1,25 +1,17 @@
 import React from 'react';
-import logo from './logo.svg';
+// Import context and provider
+import { MyContext } from './Context';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <MyContext.Consumer>
+      {context => (
+        <div className="App">
+          {context.state.language}
+        </div>
+      )}
+    </MyContext.Consumer>
   );
 }
 
